@@ -1,3 +1,9 @@
+"""
+This is where the magic happens! This file has all definitions for data prep which
+char_lstm.py and use_model.py can use. This file is not supposed to be run by itself,
+but you can import it to make use of everything defined below.
+"""
+
 import random
 import string
 from collections import Counter

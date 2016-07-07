@@ -12,6 +12,7 @@ from lxml import etree,html
 sent_tokenizer = nltk.data.load('tokenizers/punkt/dutch.pickle')
 
 def sentence_generator(location):
+    "Generate all sentences for folder of wiki text files."
     for path in glob.glob(location):
         with open(path) as f:
             contents = '<contents>'+f.read()+'</contents>'
@@ -22,6 +23,7 @@ def sentence_generator(location):
                         yield sentence
 
 def yield_number(location, n):
+    "Generate a specific number of sentences for the wiki text file folder."
     i = 0
     for sentence in sentence_generator(location):
         tokenized = word_tokenize(sentence)
@@ -32,6 +34,7 @@ def yield_number(location, n):
                 break
 
 def write_plain(location, filename, max_sents):
+    "Write all the sentences to a file."
     with open(filename,'wt') as f:
         for sentence in yield_number(location, n=max_sents):
             f.write(sentence + '\n')

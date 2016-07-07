@@ -12,12 +12,21 @@ model.compile(loss='binary_crossentropy',
               metrics=['accuracy'])
 
 def score_sentence(sentence):
-    vectorized = [char2index(char) for char in normalize(sentence)]
+    "Score a single sentence."
+    vectorized = [char2index(char) for char in normalize(sentence)[:100]]
     padded = sequence.pad_sequences([vectorized], maxlen=100)
     prediction = model.predict(padded, batch_size=1)
     return float(prediction)
 
+def score_sentence(sentences):
+    "Score multiple sentences."
+    vectorized = [[char2index(char) for char in normalize(s)[:100]] for s in sentences]
+    padded = sequence.pad_sequences(vectorized, maxlen=100)
+    predictions = model.predict(padded, batch_size=len(sentences))
+    return predictions
+
 def test_model():
+    "Test the model using some example sentences."
     dutch = ['Een man loopt op straat.', 'Ik zie een peuter met een schep.', 'Hij staat in de keuken.']
     english = ['A man crossing the street', "A toddler with a shovel.", "He's in the kitchen."]
     garbage = ['aasdg gdasdf asdf', 'asd trh afd asg', 'sdfasdf']
@@ -25,3 +34,6 @@ def test_model():
     for sentence in dutch + english + garbage:
         score= score_sentence(sentence)
         print(score, '\t' + sentence)
+
+if __name__ == "__main__":
+    test_model()

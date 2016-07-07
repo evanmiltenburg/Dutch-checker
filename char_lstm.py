@@ -1,6 +1,6 @@
 '''Trains a LSTM on a language classification task.
 
-Based on the IMDB example from the Keras repository.
+Based on the IMDB example from the Keras repository. (About 90 percent is just copy-pasted.)
 '''
 from __future__ import print_function
 import numpy as np
