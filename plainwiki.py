@@ -39,5 +39,5 @@ def write_plain(location, filename, max_sents):
         for sentence in yield_number(location, n=max_sents):
             f.write(sentence + '\n')
 
-write_plain('./dutch_text/*/*', 'nl_wiki_plain.txt', max_sents=20000)
-write_plain('./english_text/*/*', 'en_wiki_plain.txt', max_sents=20000)
+write_plain('./dutch_text/*/*', 'nl_wiki_plain.txt', max_sents=40000)
+write_plain('./english_text/*/*', 'en_wiki_plain.txt', max_sents=40000)

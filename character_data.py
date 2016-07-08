@@ -63,7 +63,7 @@ def train_index(arrays, test_split):
     "Compute the index up to where the training data goes."
     return int(len(arrays) * (1 - test_split))
 
-def load_data(maxlen=100, max_unk=5, num_english=10000, num_shuffled=10000, test_split=0.2):
+def load_data(maxlen=100, max_unk=5, num_english=20000, num_shuffled=20000, test_split=0.2):
     "Load all the data."
     dutch_arrays = load_filtered(DUTCH, maxlen, max_unk)
     english_arrays = list(vectorizing_generator(ENGLISH, maxlen))[:num_english]

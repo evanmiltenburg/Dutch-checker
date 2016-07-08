@@ -57,6 +57,6 @@ json_string = model.to_json()
 with open('my_model_architecture.json', 'w') as f:
     f.write(json_string)
     
-model.save_weights('my_model_weights.h5')
+model.save_weights('my_model_weights.h5', overwrite=True) # Warning!
 
 print('Done.')
