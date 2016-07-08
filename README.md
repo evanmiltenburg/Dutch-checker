@@ -4,6 +4,9 @@ This repository contains code and weights for an LSTM model that checks whether
 a sequence of characters is likely to be Dutch or not. The LSTM code is mostly
 copied from the Keras GitHub [here](https://github.com/fchollet/keras/blob/master/examples/imdb_lstm.py).
 
+Test accuracy is 99.47% on 15984 items (50% Dutch, 25% English, 25% garbage), and
+it's easy to add more training and test data.
+
 My contribution is the application of this code to perform a language identification task.
 For the mechanics behind this, see `character_data.py`. See `use_model.py` for how to use this model.
 
