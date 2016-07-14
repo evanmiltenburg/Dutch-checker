@@ -18,7 +18,7 @@ def score_sentence(sentence):
     prediction = model.predict(padded, batch_size=1)
     return float(prediction)
 
-def score_sentence(sentences):
+def score_sentences(sentences):
     "Score multiple sentences."
     vectorized = [[char2index(char) for char in normalize(s)[:100]] for s in sentences]
     padded = sequence.pad_sequences(vectorized, maxlen=100)
