@@ -10,6 +10,8 @@ it's easy to add more training and test data.
 My contribution is the application of this code to perform a language identification task.
 For the mechanics behind this, see `character_data.py`. See `use_model.py` for how to use this model.
 
+NB. This model cannot distinguish between 'proper' Dutch and ungrammatical Dutch. It's just good at telling Dutch-looking character sequences from English and garbage sequences. That's a pretty low bar, but it's proven to be useful for removing spammy responses to crowdsourcing tasks.
+
 ## Requirements
 
 * Numpy
